@@ -1,0 +1,17 @@
+- name: Install and configure Apache2, copy index.php
+  hosts: yopeso
+  sudo: True
+  tasks:
+    - name: Install Apache2
+      yum: name=httpd state=latest
+    - name: Install PHP
+      yum: name=php state=latest
+    - name: Copy Apache config
+      copy: src=files/httpd.conf dest=/etc/httpd/conf/
+    - name: Copy index.php
+      copy: src=files/index.php dest=/data/
+    - name: Add firewall rule
+      firewalld: service=http permanent=true state=enabled zone=public immediate=true
+      ignore_errors: true
+    - name: Restart Apache
+      service: name=httpd state=restarted
