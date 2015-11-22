@@ -14,7 +14,7 @@ Vagrant.configure(2) do |config|
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "centos"
   config.vm.box_url = "https://github.com/tommy-muehle/puppet-vagrant-boxes/releases/download/1.1.0/centos-7.0-x86_64.box"
-  config.vm.network "forwarded_port", guest: 80, host: 8008, host_ip: "127.0.0.1"
+  config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
   #config.vm.network "forwarded-port", guest: 80, host: 8080
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
