@@ -57,9 +57,7 @@ Vagrant.configure(2) do |config|
   # information on available options.
   config.vm.provider "virtualbox" do |vb|
     vb.name = "yopeso test project"
-#    vb.customize ["storagectl", :id, "--name", "IDE Controller", "--remove"]
     vb.customize ["createhd", "--filename", "/tmp/yopeso.vdi", "--size", 2048]
-    #vb.customize ["storagectl", "--name", "SATA controller", "--add", "sata"]
     vb.customize ["storageattach", :id, "--storagectl", "SATA Controller", "--port", 2, "--type", "hdd", "--medium", "/tmp/yopeso.vdi"]
   end
   # Define a Vagrant Push strategy for pushing to Atlas. Other push strategies
